@@ -1,0 +1,1436 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Photo Secret Plan! — Making Future Arrangements (M.5 Team Battle)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Brand Kit Surfaces & Fonts from Lesson Plan Document */
+      --bg: #FAFAFA;
+      --surface: #F1F3F4;
+      --surface-alt: #F5F5F5;
+      --card: #FFFFFF;
+      --border: #D8DCE2;
+      --border-strong: #B8C0CC;
+      --ink: #1A1D21;
+      --muted: #525B69;
+
+      /* Lesson Plan Pedagogical 3-Color Coding System */
+      --color-blue: #1D4ED8;      /* Subject & Verb-ing */
+      --color-blue-bg: #EFF6FF;
+      --color-blue-border: #BFDBFE;
+
+      --color-red: #DC2626;       /* Helping Verb: am / is / are */
+      --color-red-bg: #FEF2F2;
+      --color-red-border: #FECACA;
+
+      --color-green: #15803D;     /* Future Time Expression */
+      --color-green-bg: #F0FDF4;
+      --color-green-border: #BBF7D0;
+
+      --accent: #0F172A;
+      --gold: #D97706;
+      --gold-bg: #FFFBEB;
+
+      --radius: 12px;
+      --radius-sm: 8px;
+      --shadow: 0 2px 6px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-6: 24px;
+      --space-8: 32px;
+
+      --font-heading: "Courier Prime", "Courier", "Courier New", "Noto Sans Thai", monospace;
+      --font-body: "Consolas", "Monaco", "Noto Sans Thai", monospace, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      color: var(--ink);
+      background-color: var(--bg);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    h1, h2, h3, .heading-font {
+      font-family: var(--font-heading);
+      margin: 0;
+    }
+
+    /* Top Header */
+    .app-header {
+      background-color: var(--surface);
+      border-bottom: 2px solid var(--border);
+      padding: var(--space-3) var(--space-6);
+    }
+
+    .header-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-3);
+    }
+
+    .brand-title {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .course-tag {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+
+    .app-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    /* Buttons */
+    .btn {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-strong);
+      background-color: var(--card);
+      color: var(--ink);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .btn:hover:not(:disabled) {
+      background-color: var(--surface);
+      border-color: var(--ink);
+      transform: translateY(-1px);
+    }
+
+    .btn:active:not(:disabled) {
+      transform: translateY(0);
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--color-blue);
+      outline-offset: 2px;
+    }
+
+    .btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .btn-primary {
+      background-color: var(--color-blue);
+      color: #FFFFFF;
+      border-color: var(--color-blue);
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      background-color: #1E40AF;
+      border-color: #1E40AF;
+      color: #FFFFFF;
+    }
+
+    .btn-speak {
+      background-color: var(--color-green);
+      color: #FFFFFF;
+      border-color: var(--color-green);
+    }
+
+    .btn-speak:hover:not(:disabled) {
+      background-color: #166534;
+      border-color: #166534;
+      color: #FFFFFF;
+    }
+
+    /* Main Container */
+    .main-container {
+      max-width: 1240px;
+      width: 100%;
+      margin: 0 auto;
+      padding: var(--space-4) var(--space-6);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      flex: 1;
+    }
+
+    /* Group Scoreboard */
+    .scoreboard-section {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: var(--space-3) var(--space-4);
+      box-shadow: var(--shadow);
+    }
+
+    .scoreboard-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-bottom: var(--space-3);
+    }
+
+    .scoreboard-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .scoreboard-hint {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .groups-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: var(--space-3);
+    }
+
+    .group-card {
+      background-color: var(--card);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: var(--space-3);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+    }
+
+    .group-card.leading {
+      border-color: var(--gold);
+      background-color: var(--gold-bg);
+    }
+
+    .group-card.awarded-this-round {
+      border-color: var(--color-green);
+      box-shadow: 0 0 0 3px var(--color-green-border);
+    }
+
+    .group-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .group-name {
+      font-family: var(--font-heading);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .leader-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background-color: var(--gold);
+      color: #FFFFFF;
+    }
+
+    .group-score-display {
+      font-family: var(--font-heading);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--color-blue);
+      line-height: 1.1;
+      text-align: center;
+      padding: 4px 0;
+    }
+
+    .group-controls {
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 6px;
+    }
+
+    .btn-score-minus {
+      padding: 6px;
+      font-size: 15px;
+      font-weight: 700;
+      background-color: var(--surface-alt);
+    }
+
+    .btn-score-plus {
+      padding: 6px 10px;
+      font-size: 13px;
+      font-weight: 700;
+      background-color: var(--color-blue-bg);
+      color: var(--color-blue);
+      border-color: var(--color-blue-border);
+    }
+
+    .btn-score-plus:hover {
+      background-color: var(--color-blue);
+      color: #FFFFFF;
+    }
+
+    /* Full-Width Classroom Arena */
+    .game-arena {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .arena-card {
+      background-color: var(--card);
+      border: 2px solid var(--border-strong);
+      border-radius: var(--radius);
+      padding: var(--space-6);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    /* Question Banner for Big Screen Visibility */
+    .question-banner {
+      background-color: var(--ink);
+      color: #FFFFFF;
+      border-radius: var(--radius);
+      padding: var(--space-4) var(--space-6);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      box-shadow: var(--shadow);
+    }
+
+    .question-sub-prompt {
+      font-size: 14px;
+      font-weight: 700;
+      color: #93C5FD;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .question-main-text {
+      font-family: var(--font-heading);
+      font-size: clamp(22px, 3vw, 34px);
+      font-weight: 700;
+      line-height: 1.3;
+      color: #FFFFFF;
+    }
+
+    .question-main-text .q-subject {
+      color: #60A5FA;
+      text-decoration: underline;
+    }
+
+    .question-main-text .q-time {
+      color: #4ADE80;
+      text-decoration: underline;
+    }
+
+    /* Question Navigation Bar */
+    .round-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-2);
+      padding-bottom: var(--space-3);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .round-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .round-pill {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      border: 1px solid var(--border-strong);
+      background-color: var(--surface-alt);
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease;
+    }
+
+    .round-pill:hover {
+      border-color: var(--ink);
+    }
+
+    .round-pill.active {
+      background-color: var(--ink);
+      color: #FFFFFF;
+      border-color: var(--ink);
+    }
+
+    .round-pill.completed {
+      background-color: var(--color-green-bg);
+      color: var(--color-green);
+      border-color: var(--color-green-border);
+    }
+
+    .round-pill.completed.active {
+      background-color: var(--color-green);
+      color: #FFFFFF;
+      border-color: var(--color-green);
+    }
+
+    /* Real Photo Stage - Large & Clear for Classroom Projector */
+    .clue-stage {
+      background-color: var(--surface-alt);
+      border: 2px dashed var(--border-strong);
+      border-radius: var(--radius);
+      padding: var(--space-4);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-4);
+    }
+
+    .stage-badges {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-3);
+    }
+
+    .subject-badge {
+      background-color: var(--color-blue-bg);
+      color: var(--color-blue);
+      border: 2px solid var(--color-blue-border);
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .time-badge {
+      background-color: var(--color-green-bg);
+      color: var(--color-green);
+      border: 2px solid var(--color-green-border);
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .photo-frame {
+      width: 100%;
+      max-width: 880px;
+      height: clamp(280px, 44vh, 430px);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 3px solid var(--border-strong);
+      background-color: #E2E8F0;
+      position: relative;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+
+    .photo-frame:hover img {
+      transform: scale(1.02);
+    }
+
+    .photo-badge-overlay {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background-color: rgba(15, 23, 42, 0.82);
+      color: #FFFFFF;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 999px;
+      backdrop-filter: blur(4px);
+    }
+
+    /* Multiple Choice Options for Step 1: Guess Vocabulary */
+    .choices-heading {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--ink);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-2);
+    }
+
+    .choices-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--space-3);
+    }
+
+    .choice-btn {
+      font-family: var(--font-body);
+      font-size: 20px;
+      font-weight: 700;
+      padding: 18px 20px;
+      border-radius: var(--radius-sm);
+      border: 2px solid var(--border-strong);
+      background-color: var(--bg);
+      color: var(--ink);
+      cursor: pointer;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.15s ease;
+    }
+
+    .choice-btn:hover:not(:disabled) {
+      border-color: var(--color-blue);
+      background-color: var(--color-blue-bg);
+    }
+
+    .choice-letter {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background-color: var(--surface);
+      border: 1px solid var(--border-strong);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-size: 17px;
+      flex-shrink: 0;
+    }
+
+    .choice-btn.correct {
+      background-color: var(--color-green-bg);
+      border-color: var(--color-green);
+      color: var(--color-green);
+    }
+
+    .choice-btn.correct .choice-letter {
+      background-color: var(--color-green);
+      color: #FFFFFF;
+      border-color: var(--color-green);
+    }
+
+    .choice-btn.wrong {
+      background-color: var(--color-red-bg);
+      border-color: var(--color-red);
+      color: var(--color-red);
+      opacity: 0.7;
+    }
+
+    /* Step 2 Speaking Recast & Color-Coded Target Sentence (Appears full-width below options) */
+    .speaking-panel {
+      background-color: var(--surface);
+      border: 2px solid var(--border-strong);
+      border-radius: var(--radius);
+      padding: var(--space-6);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .color-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: var(--space-3);
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    .legend-blue {
+      background-color: var(--color-blue-bg);
+      color: var(--color-blue);
+      border: 1px solid var(--color-blue-border);
+    }
+
+    .legend-red {
+      background-color: var(--color-red-bg);
+      color: var(--color-red);
+      border: 1px solid var(--color-red-border);
+    }
+
+    .legend-green {
+      background-color: var(--color-green-bg);
+      color: var(--color-green);
+      border: 1px solid var(--color-green-border);
+    }
+
+    .teacher-prompt-box {
+      background-color: var(--card);
+      border-left: 4px solid var(--ink);
+      border-radius: var(--radius-sm);
+      padding: var(--space-3) var(--space-4);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .prompt-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    .ccq-dialogue {
+      font-size: 14px;
+      color: var(--ink);
+    }
+
+    .ccq-dialogue strong {
+      color: var(--color-red);
+    }
+
+    /* Target Sentence Box */
+    .target-sentence-card {
+      background-color: var(--card);
+      border: 2px solid var(--border-strong);
+      border-radius: var(--radius);
+      padding: var(--space-4);
+      min-height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: var(--space-3);
+    }
+
+    .target-sentence-card.revealed {
+      border-color: var(--color-blue);
+      background-color: #FFFFFF;
+    }
+
+    .sentence-locked-placeholder {
+      color: var(--muted);
+      font-size: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .color-coded-sentence {
+      font-size: clamp(20px, 2.4vw, 26px);
+      font-weight: 700;
+      line-height: 1.45;
+      padding: 4px;
+    }
+
+    .part-blue {
+      color: var(--color-blue);
+      background-color: var(--color-blue-bg);
+      padding: 2px 6px;
+      border-radius: 6px;
+      border-bottom: 3px solid var(--color-blue);
+    }
+
+    .part-red {
+      color: var(--color-red);
+      background-color: var(--color-red-bg);
+      padding: 2px 8px;
+      border-radius: 6px;
+      border-bottom: 3px solid var(--color-red);
+    }
+
+    .part-green {
+      color: var(--color-green);
+      background-color: var(--color-green-bg);
+      padding: 2px 6px;
+      border-radius: 6px;
+      border-bottom: 3px solid var(--color-green);
+    }
+
+    .chunk-dot {
+      color: var(--muted);
+      margin: 0 4px;
+      font-weight: 400;
+    }
+
+    /* Action Bar Bottom */
+    .speaking-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Instructions Modal / Drawer */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(15, 23, 42, 0.55);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-4);
+      z-index: 100;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-card {
+      background-color: var(--bg);
+      border: 2px solid var(--border-strong);
+      border-radius: var(--radius);
+      max-width: 720px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: var(--space-6);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: var(--space-3);
+    }
+
+    .icq-list {
+      margin: 0;
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .vocab-bank-bar {
+      background-color: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: var(--space-3) var(--space-4);
+    }
+
+    .vocab-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .vocab-chip {
+      font-size: 13px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background-color: var(--card);
+      border: 1px solid var(--border-strong);
+      color: var(--ink);
+    }
+
+    .vocab-chip.done {
+      background-color: var(--color-green-bg);
+      border-color: var(--color-green-border);
+      color: var(--color-green);
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="brand-title">
+        <span class="course-tag">EN32102 ภาษาอังกฤษ 4 (ม.5) • โรงเรียนน้ำยืนวิทยา • B-SLIM Step 1: Comprehensible Input</span>
+        <h1 class="app-title">📸 Photo Secret Plan! (Team Speaking Battle)</h1>
+      </div>
+      <div class="header-actions">
+        <button type="button" class="btn" id="btnOpenRules">📢 คำชี้แจงครู &amp; ICQs ก่อนเริ่ม</button>
+        <button type="button" class="btn" id="btnResetGame">🔄 เริ่มรอบใหม่</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-container">
+
+    <!-- 5-Group Scoreboard -->
+    <section class="scoreboard-section" aria-label="Group Scoreboard">
+      <div class="scoreboard-header">
+        <div class="scoreboard-title">
+          <span>🏆 ตารางคะแนนแข่งขัน 5 กลุ่ม (Group 1–5)</span>
+        </div>
+        <div class="scoreboard-hint">
+          กติกา: ทายคำศัพท์จากภาพถ่ายจริงถูก <strong>+1 คะแนน</strong> | พูดประโยคแผนอนาคตพร้อมกันทั้งกลุ่มชัดเจน <strong>+2 คะแนน</strong>
+        </div>
+      </div>
+      <div class="groups-grid" id="groupsGrid">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+    <!-- Main Game Arena (Full-Width for Big Classroom Screen) -->
+    <section class="game-arena">
+
+      <!-- Top Full-Screen Card: Question Prompt + Real Photo + 4 Choices -->
+      <div class="arena-card">
+        <div class="round-bar">
+          <div class="round-pills" id="roundPills" role="tablist" aria-label="เลือกข้อคำถาม 1 ถึง 10">
+            <!-- 1-10 pills -->
+          </div>
+          <div style="display:flex; gap:6px;">
+            <button type="button" class="btn" id="btnPrevRound">◀ ข้อก่อนหน้า</button>
+            <button type="button" class="btn" id="btnRandomRound">🎲 สุ่มข้อ</button>
+            <button type="button" class="btn" id="btnNextRound">ข้อถัดไป ▶</button>
+          </div>
+        </div>
+
+        <!-- Prominent English Question Banner -->
+        <div class="question-banner" aria-live="polite">
+          <span class="question-sub-prompt" id="questionSubPrompt">QUESTION 1 / 10 — LOOK AT THE PHOTO &amp; ANSWER TOGETHER!</span>
+          <h2 class="question-main-text" id="questionMainText">
+            What is Ploy doing tomorrow morning at 9 a.m.?
+          </h2>
+        </div>
+
+        <div class="clue-stage">
+          <div class="stage-badges">
+            <span class="subject-badge" id="clueSubject">👤 Subject: Ploy</span>
+            <span class="time-badge" id="clueTime">🗓️ Future Time: tomorrow morning at 9 a.m.</span>
+          </div>
+
+          <div class="photo-frame">
+            <span class="photo-badge-overlay" id="photoBadgeOverlay">📷 ภาพที่ 1 / 10</span>
+            <img id="activityPhoto" src="" alt="Mystery Activity Photo" loading="eager">
+          </div>
+        </div>
+
+        <div class="choices-heading">
+          <span>STEP 1: กลุ่มไหนทายคำศัพท์กิจกรรม (Verb Phrase) จากภาพได้ก่อน รับ +1 คะแนน!</span>
+          <button type="button" class="btn" id="btnRevealAnswer" style="padding:6px 12px; font-size:14px;">👁️ เฉลยคำตอบ</button>
+        </div>
+
+        <div class="choices-grid" id="choicesGrid">
+          <!-- 4 Options rendered by JS -->
+        </div>
+      </div>
+
+      <!-- Step 2 Conversational Recasting & Full Sentence Speaking -->
+      <div class="speaking-panel" id="speakingPanel">
+        <div style="display:flex; flex-direction:column; gap:var(--space-3);">
+          <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
+            <h2 style="font-size:20px;">🗣️ STEP 2: Speak the Full Future Arrangement Sentence!</h2>
+            <span style="font-size:14px; font-weight:700; color:var(--color-green);">+2 คะแนนเมื่อพูดทั้งกลุ่มชัดเจน</span>
+          </div>
+
+          <!-- 3-Color Marker System Legend (Links directly to Step 2 Proof Paper) -->
+          <div class="color-legend" aria-label="รหัสสีปากกาเมจิก 3 สี">
+            <span class="legend-item legend-blue">🔵 น้ำเงิน: Subject + Verb-ing</span>
+            <span class="legend-item legend-red">🔴 แดง: am / is / are</span>
+            <span class="legend-item legend-green">🟢 เขียว: Future Time</span>
+          </div>
+
+          <!-- Teacher CCQ Script -->
+          <div class="teacher-prompt-box">
+            <span class="prompt-label">Teacher Talk (เชื่อมโยงความรู้เดิมสู่ความรู้ใหม่):</span>
+            <div class="ccq-dialogue" id="teacherCcqText">
+              1. <strong>Teacher:</strong> "Are they doing this <u>right now</u> in our classroom?" → <strong>Students:</strong> "No!"<br>
+              2. <strong>Teacher:</strong> "When are they doing it?" → <strong>Students:</strong> "<span id="ccqTimeText">Tomorrow morning at 9 a.m.!</span>"<br>
+              3. <strong>Teacher:</strong> "Speak the full sentence together in 3-2-1!"
+            </div>
+          </div>
+
+          <!-- Target Sentence Reveal Box -->
+          <div class="target-sentence-card" id="targetSentenceCard">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <div class="speaking-actions">
+          <button type="button" class="btn btn-speak" id="btnPlayAudio" disabled>
+            🔊 ฟังเสียงต้นแบบ (Audio Model)
+          </button>
+          <span style="font-size:14px; color:var(--muted);" id="roundStatusText">
+            ตอบคำถามใน STEP 1 ให้ถูกต้องก่อน เพื่อเปิดประโยคเป้าหมาย
+          </span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Bottom: Round Progress Tracker (Answers stay hidden until solved!) -->
+    <section class="vocab-bank-bar" aria-label="สถานะคำศัพท์ที่ทายถูกแล้ว">
+      <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
+        <strong style="font-size:14px;">📌 คลังคำศัพท์ที่เปิดเฉลยแล้ว (ข้อที่ยังไม่ได้เล่นจะถูกซ่อนไว้ ❓ ไม่ให้นักเรียนเห็นเฉลยล่วงหน้า):</strong>
+        <span style="font-size:13px; color:var(--muted);" id="completedCounter">ผ่านแล้ว 0 / 10 ข้อ</span>
+      </div>
+      <div class="vocab-chips" id="vocabChips">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Clear Instructions & ICQs Modal -->
+  <div class="modal-backdrop" id="rulesModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 id="modalTitle" style="font-size:20px;">📢 ขั้นตอนการชี้แจงกติกา (Crystal-Clear Instructions &amp; ICQs)</h2>
+        <button type="button" class="btn" id="btnCloseRules">✕ ปิดหน้าต่าง</button>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:14px; font-size:15px;">
+        <div style="background:var(--surface); padding:14px; border-radius:8px; border:1px solid var(--border);">
+          <strong>1. คำชี้แจงของครู (Teacher's Clear Instruction ก่อนเริ่มเกม):</strong>
+          <p style="margin:6px 0 0 0;">
+            "วันนี้เราจะแข่งขันกันทั้ง 5 กลุ่มในเกม <strong>Photo Secret Plan!</strong> เพื่อเตรียมพูดนัดหมายวันหยุดสุดสัปดาห์ กติกามี 2 จังหวะง่าย ๆ:<br>
+            • <strong>จังหวะที่ 1:</strong> ดูภาพถ่ายกิจกรรมจริงบนจอ แล้วช่วยกันในกลุ่มตะโกนทายคำศัพท์ภาษาอังกฤษ กลุ่มไหนตอบถูกได้ <strong>+1 คะแนน</strong><br>
+            • <strong>จังหวะที่ 2:</strong> ดูรหัสสี 3 สีบนจอ (น้ำเงิน-แดง-เขียว) แล้วเปลี่ยนเป็นประโยคแผนการในอนาคต พูดออกเสียงพร้อมกันทั้งกลุ่มดัง ๆ กลุ่มไหนออกเสียง <strong>am/is/are + Verb-ing + เวลาอนาคต</strong> ชัดเจนรับเพิ่มอีก <strong>+2 คะแนน</strong>!"
+          </p>
+        </div>
+
+        <div style="background:var(--color-blue-bg); padding:14px; border-radius:8px; border:1px solid var(--color-blue-border);">
+          <strong>2. คำถามเช็กความเข้าใจคำสั่ง (ICQs — ถามนักเรียนก่อนกดข้อที่ 1):</strong>
+          <ul class="icq-list" style="margin-top:6px;">
+            <li><strong>Teacher:</strong> "Do you have to come out and mime in front of the class, or answer together from your group?"<br>
+                👉 <em>Students: "Answer together from our group!" (ไม่ต้องออกมาเขินหน้าห้อง!)</em></li>
+            <li><strong>Teacher:</strong> "How many points for guessing the activity phrase?"<br>
+                👉 <em>Students: "1 point!"</em></li>
+            <li><strong>Teacher:</strong> "How many points when your whole group speaks the full future sentence clearly?"<br>
+                👉 <em>Students: "2 points!"</em></li>
+            <li><strong>Teacher:</strong> "What color is the helping verb <strong>am / is / are</strong> on the screen?"<br>
+                👉 <em>Students: "Red!" (เชื่อมโยงเข้าสู่การเขียนปากกาเมจิก 3 สีในขั้นที่ 2 ทันที)</em></li>
+          </ul>
+        </div>
+      </div>
+      <div style="display:flex; justify-content:flex-end;">
+        <button type="button" class="btn btn-primary" id="btnStartFromModal">เข้าใจกติกาแล้ว เริ่มเกมข้อที่ 1 เลย!</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 10 Grade 11 (M.5) Lifestyle Activities grounded in the lesson plan & conversation with real photography
+    // No Thai translation or answer spoilers are shown to students
+    const QUESTIONS = [
+      {
+        id: 1,
+        photoUrl: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1000&q=80",
+        photoAlt: "Mystery Activity Photo 1",
+        basePhrase: "see the dentist",
+        subject: "Ploy",
+        helpingVerb: "is",
+        verbIng: "seeing the dentist",
+        futureTime: "tomorrow morning at 9 a.m.",
+        options: [
+          "see the dentist",
+          "attend a tutoring class",
+          "hang out at a café",
+          "work on the English project"
+        ]
+      },
+      {
+        id: 2,
+        photoUrl: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=1000&q=80",
+        photoAlt: "Mystery Activity Photo 2",
+        basePhrase: "practice badminton",
+        subject: "They",
+        helpingVerb: "are",
+        verbIng: "practicing badminton",
+        futureTime: "this Sunday evening",
+        options: [
+          "go to the night market",
+          "practice badminton",
+          "do volunteer work",
+          "visit grandparents"
+        ]
+      },
+      {
+        id: 3,
+        photoUrl: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&q=80",
+        photoAlt: "Mystery Activity Photo 3",
+        basePhrase: "work on the English project",
+        subject: "We",
+        helpingVerb: "are",
+        verbIng: "working on the English project",
+        futureTime: "this Saturday afternoon",
+        options: [
+          "work on the English project",
+          "watch a movie",
+          "practice for the school band",
+          "see the dentist"
+        ]
+      },
+      {
+        id: 4,
+        photoUrl: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=1000&q=80",
+        photoAlt: "Mystery Activity Photo 4",
+        basePhrase: "study at a tutoring school",
+        subject: "Pim",
+        helpingVerb: "is",
+        verbIng: "studying at a tutoring school",
+        futureTime: "this Saturday morning",
+        options: [
+          "visit grandparents",
+          "hang out at a café",
+          "study at a tutoring school",
+          "go to the night market"
+        ]
+      },
+      {
+        id: 5,
+        photoUrl: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1000&q=80",
+        photoAlt: "Mystery Activity Photo 5",
+        basePhrase: "attend an art club meeting",
+        subject: "She",
+        helpingVerb: "is",
+        verbIng: "attending an art club meeting",
+        futureTime: "this Sunday morning",
+        options: [
+          "attend an art club meeting",
+          "practice badminton",
+          "do volunteer work",
+          "work on the English project"
+        ]
+      },
+      {
+        id: 6,
+        photoUrl: "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1000&q=80",
+        photoAlt: "Mystery Activity Photo 6",
+        basePhrase: "visit grandparents",
+        subject: "Noppadon",
+        helpingVerb: "is",
+        verbIng: "visiting grandparents",
+        futureTime: "this Sunday afternoon",
+        options: [
+          "study at a tutoring school",
+          "visit grandparents",
+          "see the dentist",
+          "watch a movie"
+        ]
+      },
+      {
+        id: 7,
+        photoUrl: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1000&q=80",
+        photoAlt: "Mystery Activity Photo 7",
+        basePhrase: "go to the night market",
+        subject: "We",
+        helpingVerb: "are",
+        verbIng: "going to the night market",
+        futureTime: "this Saturday evening",
+        options: [
+          "go to the night market",
+          "attend an art club meeting",
+          "practice for the school band",
+          "visit grandparents"
+        ]
+      },
+      {
+        id: 8,
+        photoUrl: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1000&q=80",
+        photoAlt: "Mystery Activity Photo 8",
+        basePhrase: "hang out at a café",
+        subject: "My friends and I",
+        helpingVerb: "are",
+        verbIng: "hanging out at a café",
+        futureTime: "tomorrow afternoon",
+        options: [
+          "do volunteer work",
+          "see the dentist",
+          "hang out at a café",
+          "study at a tutoring school"
+        ]
+      },
+      {
+        id: 9,
+        photoUrl: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1000&q=80",
+        photoAlt: "Mystery Activity Photo 9",
+        basePhrase: "do volunteer work",
+        subject: "Our group",
+        helpingVerb: "is",
+        verbIng: "doing volunteer work",
+        futureTime: "next weekend",
+        options: [
+          "practice badminton",
+          "do volunteer work",
+          "go to the night market",
+          "watch a movie"
+        ]
+      },
+      {
+        id: 10,
+        photoUrl: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1000&q=80",
+        photoAlt: "Mystery Activity Photo 10",
+        basePhrase: "practice for the school band",
+        subject: "They",
+        helpingVerb: "are",
+        verbIng: "practicing for the school band",
+        futureTime: "this Friday evening",
+        options: [
+          "visit grandparents",
+          "attend an art club meeting",
+          "work on the English project",
+          "practice for the school band"
+        ]
+      }
+    ];
+
+    // State
+    let currentIndex = 0;
+    let revealedQuestions = new Set();
+    let wrongGuessesByRound = {};
+    let groupScores = [0, 0, 0, 0, 0];
+    let lastAwardedGroup = null;
+
+    // DOM Elements
+    const groupsGridEl = document.getElementById("groupsGrid");
+    const roundPillsEl = document.getElementById("roundPills");
+    const questionSubPromptEl = document.getElementById("questionSubPrompt");
+    const questionMainTextEl = document.getElementById("questionMainText");
+    const clueSubjectEl = document.getElementById("clueSubject");
+    const clueTimeEl = document.getElementById("clueTime");
+    const activityPhotoEl = document.getElementById("activityPhoto");
+    const photoBadgeOverlayEl = document.getElementById("photoBadgeOverlay");
+    const choicesGridEl = document.getElementById("choicesGrid");
+    const ccqTimeTextEl = document.getElementById("ccqTimeText");
+    const targetSentenceCardEl = document.getElementById("targetSentenceCard");
+    const roundStatusTextEl = document.getElementById("roundStatusText");
+    const btnPlayAudioEl = document.getElementById("btnPlayAudio");
+    const vocabChipsEl = document.getElementById("vocabChips");
+    const completedCounterEl = document.getElementById("completedCounter");
+
+    // Render 5 Groups Scoreboard
+    function renderScoreboard() {
+      const maxScore = Math.max(...groupScores);
+      groupsGridEl.innerHTML = "";
+
+      groupScores.forEach((score, idx) => {
+        const isLeading = score > 0 && score === maxScore;
+        const isAwarded = lastAwardedGroup === idx;
+
+        const card = document.createElement("div");
+        card.className = "group-card" + (isLeading ? " leading" : "") + (isAwarded ? " awarded-this-round" : "");
+
+        card.innerHTML = `
+          <div class="group-top">
+            <span class="group-name">Group ${idx + 1}</span>
+            ${isLeading ? '<span class="leader-badge">★ ผู้นำ</span>' : ''}
+          </div>
+          <div class="group-score-display">${score}</div>
+          <div class="group-controls">
+            <button type="button" class="btn btn-score-minus" data-action="minus" data-group="${idx}" title="ลดคะแนน Group ${idx + 1}">−</button>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:4px;">
+              <button type="button" class="btn btn-score-plus" data-action="plus1" data-group="${idx}" title="ทายคำศัพท์ถูก +1">+1 ทายถูก</button>
+              <button type="button" class="btn btn-score-plus" data-action="plus2" data-group="${idx}" title="พูดเต็มประโยคทั้งกลุ่ม +2">+2 พูดดัง</button>
+            </div>
+          </div>
+        `;
+        groupsGridEl.appendChild(card);
+      });
+
+      groupsGridEl.querySelectorAll("button[data-group]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const gIdx = parseInt(btn.getAttribute("data-group"), 10);
+          const action = btn.getAttribute("data-action");
+          if (action === "minus") {
+            groupScores[gIdx] = Math.max(0, groupScores[gIdx] - 1);
+            lastAwardedGroup = null;
+          } else if (action === "plus1") {
+            groupScores[gIdx] += 1;
+            lastAwardedGroup = gIdx;
+          } else if (action === "plus2") {
+            groupScores[gIdx] += 2;
+            lastAwardedGroup = gIdx;
+          }
+          renderScoreboard();
+        });
+      });
+    }
+
+    // Render Round Pills (1-10)
+    function renderRoundPills() {
+      roundPillsEl.innerHTML = "";
+      QUESTIONS.forEach((q, idx) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        const isCurrent = idx === currentIndex;
+        const isDone = revealedQuestions.has(q.id);
+        btn.className = "round-pill" + (isCurrent ? " active" : "") + (isDone ? " completed" : "");
+        btn.textContent = q.id;
+        btn.setAttribute("aria-label", `ข้อที่ ${q.id}`);
+        btn.addEventListener("click", () => {
+          currentIndex = idx;
+          lastAwardedGroup = null;
+          renderAll();
+        });
+        roundPillsEl.appendChild(btn);
+      });
+    }
+
+    // Render Current Question & Target Sentence
+    function renderQuestion() {
+      const q = QUESTIONS[currentIndex];
+      const isRevealed = revealedQuestions.has(q.id);
+      const wrongSet = wrongGuessesByRound[q.id] || new Set();
+
+      questionSubPromptEl.textContent = `QUESTION ${q.id} / ${QUESTIONS.length} — LOOK AT THE PHOTO & ANSWER TOGETHER!`;
+      questionMainTextEl.innerHTML = `What ${q.helpingVerb} <span class="q-subject">${q.subject}</span> doing <span class="q-time">${q.futureTime}</span>?`;
+
+      clueSubjectEl.textContent = `🔵 Subject: ${q.subject}`;
+      clueTimeEl.textContent = `🟢 Future Time: ${q.futureTime}`;
+      photoBadgeOverlayEl.textContent = `📷 ภาพที่ ${q.id} / ${QUESTIONS.length}`;
+      activityPhotoEl.src = q.photoUrl;
+      activityPhotoEl.alt = q.photoAlt;
+      ccqTimeTextEl.textContent = `${q.futureTime}!`;
+
+      // Render 4 options
+      const letters = ["A", "B", "C", "D"];
+      choicesGridEl.innerHTML = "";
+
+      q.options.forEach((opt, optIdx) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "choice-btn";
+
+        if (isRevealed && opt === q.basePhrase) {
+          btn.classList.add("correct");
+        } else if (wrongSet.has(opt)) {
+          btn.classList.add("wrong");
+        }
+
+        btn.innerHTML = `
+          <span class="choice-letter">${letters[optIdx]}</span>
+          <span>${opt}</span>
+        `;
+
+        btn.addEventListener("click", () => {
+          if (opt === q.basePhrase) {
+            revealedQuestions.add(q.id);
+            renderAll();
+            speakTargetSentence(q);
+          } else {
+            if (!wrongGuessesByRound[q.id]) {
+              wrongGuessesByRound[q.id] = new Set();
+            }
+            wrongGuessesByRound[q.id].add(opt);
+            renderQuestion();
+          }
+        });
+
+        choicesGridEl.appendChild(btn);
+      });
+
+      // Render Target Sentence Box (Hidden until answered so students cannot see the answer early)
+      if (isRevealed) {
+        btnPlayAudioEl.disabled = false;
+        targetSentenceCardEl.classList.add("revealed");
+        targetSentenceCardEl.innerHTML = `
+          <div style="font-size:15px; font-weight:700; color:var(--color-green);">
+            ✔ Correct Answer: "${q.basePhrase}" — ให้ทั้งกลุ่มพูดประโยคแผนอนาคตตามจังหวะจุด (•) พร้อมกัน!
+          </div>
+          <div class="color-coded-sentence">
+            <span class="part-blue">${q.subject}</span>
+            <span class="chunk-dot">•</span>
+            <span class="part-red">${q.helpingVerb}</span>
+            <span class="part-blue">${q.verbIng}</span>
+            <span class="chunk-dot">•</span>
+            <span class="part-green">${q.futureTime}</span>.
+          </div>
+          <div style="font-size:13px; color:var(--muted);">
+            โครงสร้าง: [Subject (น้ำเงิน)] + [<strong>${q.helpingVerb}</strong> (แดง)] + [Verb-ing (น้ำเงิน)] + [Future Time (เขียว)]
+          </div>
+        `;
+        roundStatusTextEl.textContent = "กดปุ่ม +1 หรือ +2 ที่ตารางคะแนนด้านบนเพื่อมอบคะแนนให้กลุ่มที่ตอบและพูดเสียงดัง!";
+      } else {
+        btnPlayAudioEl.disabled = true;
+        targetSentenceCardEl.classList.remove("revealed");
+        targetSentenceCardEl.innerHTML = `
+          <div class="sentence-locked-placeholder">
+            <span style="font-size:28px;">🔒</span>
+            <strong>ซ่อนเฉลยประโยคเป้าหมายไว้ก่อน (Answer Locked)</strong>
+            <span>ให้นักเรียนทายคำศัพท์จากภาพใน STEP 1 ให้ถูกต้องก่อน ประโยคเฉลย 3 สี (น้ำเงิน - แดง - เขียว) จึงจะเปิดขึ้น</span>
+          </div>
+        `;
+        roundStatusTextEl.textContent = "คลิกตัวเลือกคำศัพท์ A, B, C หรือ D ด้านบนเพื่อตรวจคำตอบ";
+      }
+    }
+
+    // Render Bottom Vocabulary Chips (Keep unrevealed answers masked so students cannot see spoilers!)
+    function renderVocabBank() {
+      vocabChipsEl.innerHTML = "";
+      QUESTIONS.forEach((q, idx) => {
+        const chip = document.createElement("button");
+        chip.type = "button";
+        const isDone = revealedQuestions.has(q.id);
+        chip.className = "vocab-chip" + (isDone ? " done" : "");
+        chip.style.cursor = "pointer";
+        chip.textContent = isDone ? `✔ ข้อ ${q.id}: ${q.basePhrase}` : `❓ ข้อ ${q.id}: (ยังไม่เฉลย)`;
+        chip.addEventListener("click", () => {
+          currentIndex = idx;
+          renderAll();
+        });
+        vocabChipsEl.appendChild(chip);
+      });
+      completedCounterEl.textContent = `เปิดเฉลยและฝึกพูดแล้ว ${revealedQuestions.size} / ${QUESTIONS.length} ข้อ`;
+    }
+
+    // Web Speech API for Audio Pronunciation Model
+    function speakTargetSentence(q) {
+      if (!("speechSynthesis" in window)) return;
+      try {
+        window.speechSynthesis.cancel();
+        const fullText = `${q.subject} ${q.helpingVerb} ${q.verbIng} ${q.futureTime}.`;
+        const utterance = new SpeechSynthesisUtterance(fullText);
+        utterance.lang = "en-US";
+        utterance.rate = 0.9;
+        window.speechSynthesis.speak(utterance);
+      } catch (e) {
+        // Ignore if speech synthesis is unavailable in environment
+      }
+    }
+
+    function renderAll() {
+      renderScoreboard();
+      renderRoundPills();
+      renderQuestion();
+      renderVocabBank();
+    }
+
+    // Controls Event Listeners
+    document.getElementById("btnPrevRound").addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + QUESTIONS.length) % QUESTIONS.length;
+      lastAwardedGroup = null;
+      renderAll();
+    });
+
+    document.getElementById("btnNextRound").addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % QUESTIONS.length;
+      lastAwardedGroup = null;
+      renderAll();
+    });
+
+    document.getElementById("btnRandomRound").addEventListener("click", () => {
+      const unrevealed = QUESTIONS.map((q, idx) => idx).filter(idx => !revealedQuestions.has(QUESTIONS[idx].id));
+      if (unrevealed.length > 0) {
+        const randIdx = unrevealed[Math.floor(Math.random() * unrevealed.length)];
+        currentIndex = randIdx;
+      } else {
+        currentIndex = Math.floor(Math.random() * QUESTIONS.length);
+      }
+      lastAwardedGroup = null;
+      renderAll();
+    });
+
+    document.getElementById("btnRevealAnswer").addEventListener("click", () => {
+      const q = QUESTIONS[currentIndex];
+      revealedQuestions.add(q.id);
+      renderAll();
+      speakTargetSentence(q);
+    });
+
+    document.getElementById("btnPlayAudio").addEventListener("click", () => {
+      const q = QUESTIONS[currentIndex];
+      revealedQuestions.add(q.id);
+      renderAll();
+      speakTargetSentence(q);
+    });
+
+    document.getElementById("btnResetGame").addEventListener("click", () => {
+      currentIndex = 0;
+      revealedQuestions.clear();
+      wrongGuessesByRound = {};
+      groupScores = [0, 0, 0, 0, 0];
+      lastAwardedGroup = null;
+      renderAll();
+    });
+
+    // Rules Modal
+    const rulesModalEl = document.getElementById("rulesModal");
+    document.getElementById("btnOpenRules").addEventListener("click", () => {
+      rulesModalEl.classList.add("open");
+    });
+    document.getElementById("btnCloseRules").addEventListener("click", () => {
+      rulesModalEl.classList.remove("open");
+    });
+    document.getElementById("btnStartFromModal").addEventListener("click", () => {
+      rulesModalEl.classList.remove("open");
+    });
+    rulesModalEl.addEventListener("click", (e) => {
+      if (e.target === rulesModalEl) {
+        rulesModalEl.classList.remove("open");
+      }
+    });
+
+    // Initial Render
+    renderAll();
+  </script>
+</body>
+</html>
